@@ -7,7 +7,7 @@ typedef struct stdio_file_s {
     FILE *handle;
 } stdio_file_t;
 
-file_api_file_t * stdio_file_open(const char *fileName, bool writeMode)
+static file_api_file_t * stdio_file_open(const char *fileName, bool writeMode)
 {
     FILE *handle = fopen(fileName, writeMode ? "wb" : "rb");
     if(!handle)
@@ -21,7 +21,7 @@ file_api_file_t * stdio_file_open(const char *fileName, bool writeMode)
     return &file->super;
 }
 
-void stdio_file_close(file_api_file_t *file)
+static void stdio_file_close(file_api_file_t *file)
 {
     if(!file)
         return;
@@ -31,7 +31,7 @@ void stdio_file_close(file_api_file_t *file)
     free(stdioFile);
 }
 
-void stdio_file_seek(file_api_file_t *file, size_t offset)
+static void stdio_file_seek(file_api_file_t *file, size_t offset)
 {
     if(!file)
         return;
@@ -40,7 +40,7 @@ void stdio_file_seek(file_api_file_t *file, size_t offset)
     fseek(stdioFile->handle, offset, SEEK_SET);
 }
 
-int64_t stdio_file_tell(file_api_file_t *file)
+static int64_t stdio_file_tell(file_api_file_t *file)
 {
     if(!file)
         return 0;
@@ -49,7 +49,7 @@ int64_t stdio_file_tell(file_api_file_t *file)
     return ftell(stdioFile->handle);
 }
 
-int64_t stdio_file_read(file_api_file_t *file, size_t bufferSize, void* buffer)
+static int64_t stdio_file_read(file_api_file_t *file, size_t bufferSize, void* buffer)
 {
     if(!file)
         return 0;
@@ -57,7 +57,8 @@ int64_t stdio_file_read(file_api_file_t *file, size_t bufferSize, void* buffer)
     stdio_file_t *stdioFile = (stdio_file_t*)file;
     return (int64_t)fread(buffer, 1, bufferSize, stdioFile->handle);
 }
-int64_t stdio_file_write(file_api_file_t *file, size_t bufferSize, const void* data)
+
+static int64_t stdio_file_write(file_api_file_t *file, size_t bufferSize, const void* data)
 {
     if(!file)
         return 0;
