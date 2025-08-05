@@ -2,4 +2,4 @@
 cmake_minimum_required(VERSION 3.5)
 project(FSBenchmarks)
 
-add_executable(FSBenchmarks Time.c Main.c)
+add_executable(FSBenchmarks Time.c Main.c Stdio.c Posix.c)

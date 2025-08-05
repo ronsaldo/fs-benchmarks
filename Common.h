@@ -23,4 +23,11 @@ typedef struct file_api_s
     int64_t (*write)(file_api_file_t *file, size_t bufferSize, const void* data);
 } file_api_t;
 
+extern file_api_t stdio_file_api;
+
+#ifndef _WIN32
+extern file_api_t posix_file_api;
+extern file_api_t posix_explicit_offset_file_api;
+#endif
+
 #endif // FS_BENCHMARKS_COMMON_H
