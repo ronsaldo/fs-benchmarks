@@ -2,8 +2,25 @@
 #define FS_BENCHMARKS_COMMON_H
 
 #include <stdint.h>
+#include <stddef.h>
+#include <stdbool.h>
 
 void initializeClock(void);
 int64_t getCurrentMicroseconds(void);
+
+typedef struct file_api_file_s
+{
+} file_api_file_t;
+
+typedef struct file_api_s
+{
+    const char *name;
+    file_api_file_t *(*open)(const char *fileName, bool writeMode);
+    void (*close)(file_api_file_t *file);
+    void (*seek)(file_api_file_t *file, size_t offset);
+    int64_t (*tell)(file_api_file_t *file);
+    int64_t (*read)(file_api_file_t *file, size_t bufferSize, void* buffer);
+    int64_t (*write)(file_api_file_t *file, size_t bufferSize, const void* data);
+} file_api_t;
 
 #endif // FS_BENCHMARKS_COMMON_H
