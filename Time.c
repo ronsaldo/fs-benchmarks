@@ -5,6 +5,11 @@
 #else
 #include <time.h>
 
+void initializeClock(void)
+{
+    // Nothing required here
+}
+
 int64_t getCurrentMicroseconds()
 {
     struct timespec ts;

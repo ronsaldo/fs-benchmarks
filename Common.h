@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 
-int64_t getCurrentMicroseconds();
+void initializeClock(void);
+int64_t getCurrentMicroseconds(void);
 
 #endif // FS_BENCHMARKS_COMMON_H
