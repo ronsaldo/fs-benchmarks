@@ -12,6 +12,7 @@ uint32_t nextRandomNumber();
 
 typedef struct file_api_file_s
 {
+    int reserved;
 } file_api_file_t;
 
 typedef struct file_api_s
@@ -28,6 +29,9 @@ typedef struct file_api_s
 
 extern file_api_t stdio_file_api;
 
+#ifdef _WIN32
+extern file_api_t win32_file_api;
+#endif
 #ifndef _WIN32
 extern file_api_t posix_file_api;
 extern file_api_t posix_explicit_offset_file_api;

@@ -1,7 +1,25 @@
 #include "Common.h"
 
 #ifdef _WIN32
-#error TODO: Windows
+#define WIN32_LEAN_AND_MEAN
+#include <Windows.h>
+
+static LARGE_INTEGER performanceCounterFrequency;
+
+void initializeClock(void)
+{
+    QueryPerformanceFrequency(&performanceCounterFrequency);
+}
+
+int64_t getCurrentMicroseconds()
+{
+    LARGE_INTEGER performanceCounter;
+    if(!QueryPerformanceCounter(&performanceCounter))
+        return 0;
+
+    return performanceCounter.QuadPart * 1000000 / performanceCounterFrequency.QuadPart;
+}
+
 #else
 #include <time.h>
 
