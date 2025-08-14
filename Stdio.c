@@ -9,7 +9,7 @@ typedef struct stdio_file_s {
 
 static file_api_file_t * stdio_file_open(const char *fileName, bool writeMode)
 {
-    FILE *handle = fopen(fileName, writeMode ? "wb" : "rb");
+    FILE *handle = fopen(fileName, writeMode ? "w+b" : "rb");
     if(!handle)
     {
         perror("Failed to open file");
