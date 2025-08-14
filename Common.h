@@ -7,6 +7,8 @@
 
 void initializeClock(void);
 int64_t getCurrentMicroseconds(void);
+void setRandomNumberSeed(uint32_t seed);
+uint32_t nextRandomNumber();
 
 typedef struct file_api_file_s
 {
