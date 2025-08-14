@@ -21,6 +21,11 @@ static file_api_file_t * stdio_file_open(const char *fileName, bool writeMode)
     return &file->super;
 }
 
+static file_api_file_t * stdio_file_openWriteWithSize(const char *fileName, size_t fileSize)
+{
+    return stdio_file_open(fileName, true);
+}
+
 static void stdio_file_close(file_api_file_t *file)
 {
     if(!file)
@@ -70,6 +75,7 @@ static int64_t stdio_file_write(file_api_file_t *file, size_t bufferSize, const 
 file_api_t stdio_file_api = {
     .name = "Stdio",
     .open = stdio_file_open,
+    .openWriteWithSize = stdio_file_openWriteWithSize,
     .close = stdio_file_close,
     .seek = stdio_file_seek,
     .tell = stdio_file_tell,

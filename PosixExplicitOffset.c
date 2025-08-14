@@ -28,6 +28,14 @@ static file_api_file_t * posix_explicit_offset_file_open(const char *fileName, b
     return &posixFile->super;
 }
 
+static file_api_file_t * posix_explicit_offset_file_openWriteWithSize(const char *fileName, size_t fileSize)
+{
+    posix_explicit_offset_file_t *posixFile = (posix_explicit_offset_file_t *)posix_explicit_offset_file_open(fileName, true);
+    if(posixFile)
+        ftruncate(posixFile->fd, fileSize);
+    return &posixFile->super;
+}
+
 static void posix_explicit_offset_file_close(file_api_file_t *file)
 {
     if(!file)
@@ -83,6 +91,7 @@ static int64_t posix_explicit_offset_file_write(file_api_file_t *file, size_t bu
 file_api_t posix_explicit_offset_file_api = {
     .name = "Posix Explicit Offset",
     .open = posix_explicit_offset_file_open,
+    .openWriteWithSize = posix_explicit_offset_file_openWriteWithSize,
     .close = posix_explicit_offset_file_close,
     .seek = posix_explicit_offset_file_seek,
     .tell = posix_explicit_offset_file_tell,

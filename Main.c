@@ -19,12 +19,15 @@ uint32_t nextRandomNumber()
 
 void benchmarkFileApi(file_api_t *api)
 {
-    file_api_file_t *file = api->open("benchmark-file", true);
+    int writeBufferCount = 200;
+    int readBufferCount = writeBufferCount;
+
+    //file_api_file_t *file = api->open("benchmark-file", true);
+    file_api_file_t *file = api->openWriteWithSize("benchmark-file", writeBufferCount*randomDataSize*4);
 
     // Write data tests
     {
         int64_t writeStartingTime = getCurrentMicroseconds();
-        int writeBufferCount = 200;
         for(int i = 0; i < writeBufferCount; ++i)
             api->write(file, randomDataSize*4, randomData);
         int64_t writeEndingTime = getCurrentMicroseconds();
@@ -36,7 +39,6 @@ void benchmarkFileApi(file_api_t *api)
     {
         api->seek(file, 0);
         int64_t readStartingTime = getCurrentMicroseconds();
-        int readBufferCount = 200;
         for(int i = 0; i < readBufferCount; ++i)
             api->read(file, randomDataSize*4, readDataBuffer);
         int64_t readEndingTime = getCurrentMicroseconds();

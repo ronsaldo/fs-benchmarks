@@ -18,6 +18,7 @@ typedef struct file_api_s
 {
     const char *name;
     file_api_file_t *(*open)(const char *fileName, bool writeMode);
+    file_api_file_t *(*openWriteWithSize)(const char *fileName, size_t fileSize);
     void (*close)(file_api_file_t *file);
     void (*seek)(file_api_file_t *file, size_t offset);
     int64_t (*tell)(file_api_file_t *file);

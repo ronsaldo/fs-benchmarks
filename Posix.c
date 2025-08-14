@@ -27,6 +27,14 @@ static file_api_file_t * posix_file_open(const char *fileName, bool writeMode)
     return &posixFile->super;
 }
 
+static file_api_file_t * posix_file_openWriteWithSize(const char *fileName, size_t fileSize)
+{
+    posix_file_t *posixFile = (posix_file_t *)posix_file_open(fileName, true);
+    if(posixFile)
+        ftruncate(posixFile->fd, fileSize);
+    return &posixFile->super;
+}
+
 static void posix_file_close(file_api_file_t *file)
 {
     if(!file)
@@ -76,6 +84,7 @@ static int64_t posix_file_write(file_api_file_t *file, size_t bufferSize, const 
 file_api_t posix_file_api = {
     .name = "Posix",
     .open = posix_file_open,
+    .openWriteWithSize = posix_file_openWriteWithSize,
     .close = posix_file_close,
     .seek = posix_file_seek,
     .tell = posix_file_tell,
