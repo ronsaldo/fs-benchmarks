@@ -61,6 +61,7 @@ int main(int argc, const char *argv[])
     benchmarkFileApi(&stdio_file_api);
 #ifndef _WIN32
     benchmarkFileApi(&posix_file_api);
+    benchmarkFileApi(&posix_explicit_offset_file_api);
 #endif
     
     free(randomData);
