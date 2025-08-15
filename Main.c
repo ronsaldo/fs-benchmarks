@@ -61,7 +61,9 @@ int main(int argc, const char *argv[])
         randomData[i] = nextRandomNumber();
 
     benchmarkFileApi(&stdio_file_api);
-#ifndef _WIN32
+#ifdef _WIN32
+    benchmarkFileApi(&win32_file_api);
+#else
     benchmarkFileApi(&posix_file_api);
     benchmarkFileApi(&posix_explicit_offset_file_api);
 #endif
