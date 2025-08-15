@@ -32,7 +32,18 @@ void benchmarkFileApi(file_api_t *api)
             api->write(file, randomDataSize*4, randomData);
         int64_t writeEndingTime = getCurrentMicroseconds();
         double writeTime = (double)(writeEndingTime - writeStartingTime) / writeBufferCount * 0.001;
-        printf("%s. Average write time(ms): %f\n", api->name, writeTime);
+        printf("%s. First average write time(ms): %f\n", api->name, writeTime);
+    }
+
+    // Write data tests
+    {
+        api->seek(file, 0);
+        int64_t writeStartingTime = getCurrentMicroseconds();
+        for(int i = 0; i < writeBufferCount; ++i)
+            api->write(file, randomDataSize*4, randomData);
+        int64_t writeEndingTime = getCurrentMicroseconds();
+        double writeTime = (double)(writeEndingTime - writeStartingTime) / writeBufferCount * 0.001;
+        printf("%s. Second average write time(ms): %f\n", api->name, writeTime);
     }
 
     // Read data test
