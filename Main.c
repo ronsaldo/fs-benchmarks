@@ -66,6 +66,7 @@ int main(int argc, const char *argv[])
 #else
     benchmarkFileApi(&posix_file_api);
     benchmarkFileApi(&posix_explicit_offset_file_api);
+    benchmarkFileApi(&posix_mmap_file_api);
 #endif
     
     free(randomData);

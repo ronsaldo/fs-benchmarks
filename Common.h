@@ -35,6 +35,7 @@ extern file_api_t win32_file_api;
 #ifndef _WIN32
 extern file_api_t posix_file_api;
 extern file_api_t posix_explicit_offset_file_api;
+extern file_api_t posix_mmap_file_api;
 #endif
 
 #endif // FS_BENCHMARKS_COMMON_H
