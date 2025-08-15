@@ -5,5 +5,5 @@ project(FSBenchmarks)
 add_executable(FSBenchmarks
     Time.c Main.c Stdio.c
     Posix.c PosixExplicitOffset.c PosixMemoryMappping.c
-    Win32FileApi.c
+    Win32FileApi.c Win32OverlappedFileApi.c
 )

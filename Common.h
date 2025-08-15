@@ -31,6 +31,7 @@ extern file_api_t stdio_file_api;
 
 #ifdef _WIN32
 extern file_api_t win32_file_api;
+extern file_api_t win32_overlapped_file_api;
 #endif
 #ifndef _WIN32
 extern file_api_t posix_file_api;
