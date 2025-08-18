@@ -116,6 +116,8 @@ int main(int argc, const char *argv[])
     benchmarkFileApi(&stdio_file_api);
 #ifdef _WIN32
     benchmarkFileApi(&win32_file_api);
+    benchmarkFileApi(&win32_overlapped_file_api);
+    benchmarkFileApi(&win32_mmaped_file_api);
 #else
     benchmarkFileApi(&posix_file_api);
     benchmarkFileApi(&posix_explicit_offset_file_api);

@@ -42,7 +42,7 @@ static void stdio_file_seek(file_api_file_t *file, size_t offset)
         return;
 
     stdio_file_t *stdioFile = (stdio_file_t*)file;
-    fseek(stdioFile->handle, offset, SEEK_SET);
+    fseek(stdioFile->handle, (long)offset, SEEK_SET);
 }
 
 static int64_t stdio_file_tell(file_api_file_t *file)
