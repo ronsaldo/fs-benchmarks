@@ -32,6 +32,36 @@ void benchmarkFileApi(file_api_t *api)
     //file_api_file_t *file = api->open("benchmark-file", true);
     file_api_file_t *file = api->openWriteWithSize("benchmark-file", writeBufferCount*randomDataSize*4);
 
+    // Write data random offsets
+    {
+        
+        int64_t writeStartingTime = getCurrentMicroseconds();
+        for(int i = 0; i < smallWriteBufferCount; ++i)
+        {
+            api->seek(file, nextRandomNumber() % (randomDataSize / 10));
+            api->write(file, smallRandomDataSize*4, smallRandomData);
+        }
+        int64_t writeEndingTime = getCurrentMicroseconds();
+        int64_t deltaTime = writeEndingTime - writeStartingTime;
+        double writingSpeed = smallWriteBufferCount * smallRandomDataSize*4 / (double)(deltaTime*1e-6); 
+        printf("%s. Random small writing speed (MB/s): %f\n", api->name, writingSpeed*0.000001);
+    }
+
+    // Write data random offsets
+        {
+        
+            int64_t writeStartingTime = getCurrentMicroseconds();
+            for(int i = 0; i < smallWriteBufferCount; ++i)
+            {
+                api->seek(file, nextRandomNumber() % (randomDataSize / 10));
+                api->write(file, smallRandomDataSize*4, smallRandomData);
+            }
+            int64_t writeEndingTime = getCurrentMicroseconds();
+            int64_t deltaTime = writeEndingTime - writeStartingTime;
+            double writingSpeed = smallWriteBufferCount * smallRandomDataSize*4 / (double)(deltaTime*1e-6); 
+            printf("%s. Random second small writing speed (MB/s): %f\n", api->name, writingSpeed*0.000001);
+        }
+    
     // Write data tests
     {
         api->seek(file, 0);
