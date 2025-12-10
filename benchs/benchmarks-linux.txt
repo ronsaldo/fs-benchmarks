@@ -1,28 +1,28 @@
-Stdio. Random small writing speed (MB/s): 3005.687030
-Stdio. Random second small writing speed (MB/s): 3120.286433
-Stdio. First small writing speed (MB/s): 1931.847659
-Stdio. Second small writing speed (MB/s): 3159.153137
-Stdio. First average writing speed (MB/s): 3222.583868
-Stdio. Second average writing speed (MB/s): 7778.166686
-Stdio. Average read speed(MB/s): 8729.621789
-Posix. Random small writing speed (MB/s): 4170.654719
-Posix. Random second small writing speed (MB/s): 4352.353629
-Posix. First small writing speed (MB/s): 1789.662254
-Posix. Second small writing speed (MB/s): 3590.934993
-Posix. First average writing speed (MB/s): 3285.016220
-Posix. Second average writing speed (MB/s): 7423.491639
-Posix. Average read speed(MB/s): 9553.493593
-Posix Explicit Offset. Random small writing speed (MB/s): 5202.921562
-Posix Explicit Offset. Random second small writing speed (MB/s): 5829.775121
-Posix Explicit Offset. First small writing speed (MB/s): 2684.581353
-Posix Explicit Offset. Second small writing speed (MB/s): 5242.880000
-Posix Explicit Offset. First average writing speed (MB/s): 3609.359068
-Posix Explicit Offset. Second average writing speed (MB/s): 8422.293812
-Posix Explicit Offset. Average read speed(MB/s): 9621.513705
-Posix MMap. Random small writing speed (MB/s): 33219.789132
-Posix MMap. Random second small writing speed (MB/s): 32650.458350
-Posix MMap. First small writing speed (MB/s): 1650.115822
-Posix MMap. Second small writing speed (MB/s): 10146.148130
-Posix MMap. First average writing speed (MB/s): 1675.217255
-Posix MMap. Second average writing speed (MB/s): 19747.235387
-Posix MMap. Average read speed(MB/s): 9756.811474
+Stdio. Random small writing speed (MB/s): 2833.719603
+Stdio. Random second small writing speed (MB/s): 2795.999863
+Stdio. First small writing speed (MB/s): 1770.362847
+Stdio. Second small writing speed (MB/s): 2870.659144
+Stdio. First average writing speed (MB/s): 3582.784719
+Stdio. Second average writing speed (MB/s): 8344.111144
+Stdio. Average read speed(MB/s): 8437.928489
+Posix. Random small writing speed (MB/s): 3938.650897
+Posix. Random second small writing speed (MB/s): 3987.344853
+Posix. First small writing speed (MB/s): 2342.780336
+Posix. Second small writing speed (MB/s): 4534.233686
+Posix. First average writing speed (MB/s): 3282.159004
+Posix. Second average writing speed (MB/s): 6747.979824
+Posix. Average read speed(MB/s): 8559.353769
+Posix Explicit Offset. Random small writing speed (MB/s): 5004.887586
+Posix Explicit Offset. Random second small writing speed (MB/s): 5033.177685
+Posix Explicit Offset. First small writing speed (MB/s): 2424.744709
+Posix Explicit Offset. Second small writing speed (MB/s): 4623.546676
+Posix Explicit Offset. First average writing speed (MB/s): 3539.431479
+Posix Explicit Offset. Second average writing speed (MB/s): 8528.330046
+Posix Explicit Offset. Average read speed(MB/s): 10707.784559
+Posix MMap. Random small writing speed (MB/s): 35961.369622
+Posix MMap. Random second small writing speed (MB/s): 43115.789474
+Posix MMap. First small writing speed (MB/s): 1717.508439
+Posix MMap. Second small writing speed (MB/s): 9431.268708
+Posix MMap. First average writing speed (MB/s): 1727.048603
+Posix MMap. Second average writing speed (MB/s): 20574.544145
+Posix MMap. Average read speed(MB/s): 9302.974626
